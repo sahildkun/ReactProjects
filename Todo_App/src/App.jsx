@@ -60,9 +60,9 @@ function App() {
         todoList.map((elem ,key) => {
         return (  
             <>
-            <motion.div className='flex flex-auto items-center justify-between m-5' animate={{scale:1.4}}>
-            <h1 key={key} className="text-left">{elem}</h1>
-            <button onClick={() => deleteTodo(elem)} className="bg-black text-white p-2 "> DELETE</button>
+            <motion.div className='flex flex-auto items-center justify-between m-5 bg-gray-800 px-1 py-1' animate={{scale:1.4}}>
+            <h1 key={key} className="text-left text-white">{elem}</h1>
+            <button onClick={() => deleteTodo(elem)} className="bg-red-600 text-white p-2 text-xs rounded-lg"> DELETE</button>
             </motion.div>
             </>
           )
