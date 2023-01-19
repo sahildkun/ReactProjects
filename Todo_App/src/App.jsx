@@ -1,6 +1,7 @@
 import { useState ,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { motion } from 'framer-motion';
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -39,7 +40,7 @@ function App() {
 
     <div className="mx-auto my-10 text-center flex flex-col gap-4">
      <div>
-      <h1 className='text-5xl  font-serif'>TODO APP</h1>
+      <motion.h1 className='text-md md:text-5xl my-10 font-serif' animate={{ scale:2  }} transition={{duration:1.3}}>TODO APP</motion.h1>
      </div>
      <div className='space-x-3'>
       <input type="text" 
@@ -49,7 +50,7 @@ function App() {
       placeholder='press enter or click on add button to create a tOdO' 
       onKeyDown={handleKey}
       id="" 
-      className='border-2 border-black px-2 py-1 w-[30rem]'/>
+      className='border-2 border-black px-2 py-1 md:w-[30rem]'/>
       <button type="submit" className='text-white bg-black px-2 py-1 hover:bg-gray-600' onClick={addTodotoList} >ADD</button>
      </div>
 
@@ -59,10 +60,10 @@ function App() {
         todoList.map((elem ,key) => {
         return (  
             <>
-            <div className='flex flex-auto items-center justify-between m-5'>
+            <motion.div className='flex flex-auto items-center justify-between m-5' animate={{scale:1.4}}>
             <h1 key={key} className="text-left">{elem}</h1>
             <button onClick={() => deleteTodo(elem)} className="bg-black text-white p-2 "> DELETE</button>
-            </div>
+            </motion.div>
             </>
           )
         })
