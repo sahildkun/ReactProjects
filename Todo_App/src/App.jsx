@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div>
-      <video src={videoBg1} autoPlay loop muted  className='absolute block md:hidden' id='videoBg'/>
+      <video src={videoBg2} autoPlay loop muted  className='absolute block md:hidden' id='videoBg'/>
       <video src={videoBg2} autoPlay loop muted  className='absolute hidden md:block' id='videoBg'/>
     <div className=" mx-0 md:mx-12  text-center flex flex-col gap-y-4" id='relative'>
      <div>
