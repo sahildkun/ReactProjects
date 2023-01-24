@@ -2,7 +2,8 @@ import { useState ,useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { motion } from 'framer-motion';
-
+import videoBg1 from '../src/assets/production ID_3832194.mp4'
+import videoBg2 from '../src/assets/production ID_4836402.mp4'
 function App() {
   const [todo, setTodo] = useState({todoData:"" , todoStatus:false});
   const[todoList,setTodoList] = useState([]);
@@ -55,10 +56,12 @@ function App() {
 
 
   return (
-
-    <div className="mx-0 md:mx-12 my-10 text-center flex flex-col gap-y-4">
+    <div>
+      <video src={videoBg1} autoPlay loop muted  className='absolute block md:hidden' id='videoBg'/>
+      <video src={videoBg2} autoPlay loop muted  className='absolute hidden md:block' id='videoBg'/>
+    <div className=" mx-0 md:mx-12  text-center flex flex-col gap-y-4" id='relative'>
      <div>
-      <motion.p className='text-3xl md:text-5xl  font-serif' animate={{   }} transition={{duration:1.3}}>TODO APP</motion.p>
+      <motion.p className='text-5xl text-white md:text-gray-800  md:text-5xl pt-44 pb-2 font-serif' animate={{ scale:1.1   }} transition={{ease:'easeIn'}}>TODO APP</motion.p>
      </div>
      <form className='space-x-3 space-y-2' onSubmit={handleSubmit}>
       <input type="text" 
@@ -68,8 +71,8 @@ function App() {
       placeholder='Add todo ' 
       onKeyDown={handleKey}
       id="" 
-      className='border-2 border-black px-2 py-1 md:w-[30rem]'/>
-      <button type="submit" className='text-white bg-black shadow-2xl px-2 py-2 hover:bg-gray-600 rounded-full' onClick={handleSubmit} >ADD</button>
+      className='border-2 border-black px-3 py-3 md:w-[30rem] bg-[#0000006c] text-white rounded-full'/>
+      <button type="submit" className='text-white bg-gray-600 opacity-60 shadow-2xl p-3 font-light hover:bg-black rounded-lg' onClick={handleSubmit} >ADD</button>
      </form>
 
      <div className='mx-auto w-60 md:w-96'>
@@ -80,8 +83,8 @@ function App() {
         return (  
             <>
             
-            <motion.div className='flex flex-auto items-center   justify-between my-5 bg-gray-800 px-1 py-[0.5rem] rounded-lg border-2 border-gray-600' animate={{scale:1.4}} transition={{duration:1}}>
-            <h1 key={key} className={`text-left text-xs max-w-[5rem] line-clamp-3 md:max-w-md ${elem.todoStatus ? 'text-gray-500 line-through' : 'text-white'} `}>{elem.todoData}</h1>
+            <motion.div className='flex flex-auto items-center   justify-between my-5 bg-[#4037376c] px-1 py-[0.5rem] rounded-lg border-2 border-gray-900' animate={{scale:1.4}} transition={{duration:0.5}}>
+            <h1 key={key} className={`text-left text-xs max-w-[5rem] font-mono line-clamp-3 md:max-w-md ${elem.todoStatus ? 'text-gray-500 line-through' : 'text-white'} `}>{elem.todoData}</h1>
             <div className='space-x-1 md:space-x-4'>
             <button onClick={() => markTodo(key)} className="bg-green-600 text-white  p-1 md:p-2  text-[7px] md:text-xs font-thin rounded-lg">DONE</button>
             <button onClick={() => deleteTodo(elem)} className="bg-red-600 text-white p-1 md:p-2  text-[7px] md:text-xs rounded-lg"> DELETE</button>
@@ -98,6 +101,7 @@ function App() {
       }
      </div>
 
+    </div>
     </div>
   )
 }
