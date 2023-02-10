@@ -16,7 +16,7 @@ return (
 
                     <div key={id}>
                        <h3>{user}</h3> 
-                       <button type='button' onClick={() => dispatch(removeUser(id))}>delete</button>
+                       <button type='button' onClick={() => dispatch(k(id))}>delete</button>
                     </div>
                 )
             })

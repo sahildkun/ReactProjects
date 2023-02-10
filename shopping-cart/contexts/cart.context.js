@@ -1,17 +1,23 @@
 
 import { createContext } from "react";
 import { randEmail, randFullName ,randImg} from '@ngneat/falso';
-import { useEffect,useState } from "react";
+import { useEffect,useState ,useReducer} from "react";
 import axios from "axios";
 
 export const CartContext = createContext();
 
-
+const initialState ={
+  featuredProducts: [],
+  Products : [],
+  isError : false,
+}
 
 const CartProvider = ({children}) => {
 
   const[products, setProducts] = useState([]);
   const[productsError, setProductsError] = useState('');
+
+
 
 
   // useEffect(() => {

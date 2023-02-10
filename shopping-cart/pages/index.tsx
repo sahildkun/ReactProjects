@@ -5,13 +5,14 @@ import { CartContext } from "@/contexts/cart.context"
 import { siteConfig } from "@/config/site"
 import { Layout } from "@/components/layout"
 import { buttonVariants } from "@/components/ui/button"
-
+import { Progress } from "@/components/ui/progress"
+import Card from "@/components/ProductCard/Card"
 
 export default function IndexPage() {
 
   const products = useContext(CartContext);
 
-
+  console.log(products);
   return (
     <Layout>
       {
@@ -19,13 +20,14 @@ export default function IndexPage() {
 
           return (
             <>
-            <h1>{product.name}</h1>
+            <Card name={product.name} description={product.description} price={product.price} img={product.image}/>
 
             </>
           )
          })) : (<>
 
-         Sorry For the inconvinience :(  some trouble has occurred
+          <Progress value={88} />
+
          </>)
       }
     </Layout>
