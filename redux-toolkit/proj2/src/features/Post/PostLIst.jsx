@@ -7,15 +7,9 @@ import { Link } from 'react-router-dom';
 const PostLIst = () => {
   const dispatch = useDispatch();
    const posts = useSelector(selectAllPosts);
-   const postStatus = useSelector(getPostStatus)
-   const postError = useSelector(getPostError)
 
 
-   useEffect(() => {
-    if (postStatus === 'idle') {
-        dispatch(fetchPosts())
-    }
-}, [postStatus, dispatch])
+
 
 
 
@@ -23,8 +17,8 @@ const PostLIst = () => {
 
     <div >
         <h3>{post.title}</h3>
-        <p>{post.body}</p>
-        {/* <span>Author:{post.user}<br/></span> */}
+        <p>{post.content}</p>
+        <span>Author:{post.user}<br/></span>
        
         <Link to={`/posts/${post.id}`}>View Post</Link>
     </div>

@@ -8,7 +8,7 @@ const Card = ({name, description,price,img}) => {
   <Image src={img} alt={'img23w'} width={500} height={200} className="h-full"  />
   </div>
   <div className="px-6 py-4">
-    <div className="font-bold text-xl mb-2">{name}</div>
+    <div className="font-bold text-xl mb-2">{name.toUpperCase()}</div>
     <div className="font-bold text-lg mb-2">Rs. {price}</div>
     <p className="text-gray-400 text-base line-clamp-2">
       {description}

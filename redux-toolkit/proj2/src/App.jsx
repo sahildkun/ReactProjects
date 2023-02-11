@@ -6,6 +6,7 @@ import AddPost from './features/Post/AddPost'
 import { Routes,Route } from 'react-router-dom'
 import Home from './pages/home'
 import SinglePostPage from './features/Post/SinglePostPage'
+import { EditPostForm } from './features/Post/EditPost'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route  path='/' element={<Home/>}/>
       <Route path='/posts/:postId' element={<SinglePostPage/>}/>
+      <Route path='/editPost/:postId' element={<EditPostForm/>}/>
     </Routes>
   )
 }
