@@ -15,21 +15,25 @@ export default function IndexPage() {
   console.log(products);
   return (
     <Layout>
+      <div className="grid grid-cols-3 gap-y-3">
       {
-        products.length > 0 ? (products.map((product) => {
+
+        products.length > 0 ? (products.map((product: { name: any; description: any; price: any; image: any }) => {
 
           return (
             <>
+
             <Card name={product.name} description={product.description} price={product.price} img={product.image}/>
 
             </>
           )
          })) : (<>
-
-          <Progress value={88} />
-
+          <div className="w-[100rem]">
+          <Progress value={88}  />
+          </div>
          </>)
       }
+      </div>
     </Layout>
   )
 
