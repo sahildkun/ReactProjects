@@ -1,8 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
-const Card = ({name, description,price,img}) => {
+import { Button } from "@/components/ui/button"
+
+const Card = ({name, description,price,img }) => {
   return (
-    <div className='m-10 mx-auto max-w-sm '>
+    <div className='m-10 mx-auto max-w-sm  shadow-2xl'>
   <div className=" max-w-sm rounded m-0 shadow-lg bg-gray-700">
     <div className='h-60 w-96'>
   <Image src={img} alt={'img23w'} width={500} height={200} className="h-full"  />
@@ -19,7 +21,17 @@ const Card = ({name, description,price,img}) => {
     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
   </div> */}
+  <div className='flex flex-auto  justify-center space-x-4 p-3'>
+    <div>
+   <Button className='w-32'>Buy Now </Button>
+   </div>
+   <div>
+   <Button className='w-32'>Add to Cart</Button>
+   </div>
+  </div>
 </div>
+
+
     </div>
   )
 }
