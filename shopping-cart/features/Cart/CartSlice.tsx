@@ -24,7 +24,8 @@ const cartSlice = createSlice({
       decrementQuantity: (state, action) => {
         const item = state.cart.find((item) => item.id === action.payload);
         if (item.quantity === 1) {
-          item.quantity = 1
+         state.cart.pop(item)
+
         } else {
           item.quantity--;
         }
@@ -37,5 +38,5 @@ const cartSlice = createSlice({
 });
 
 export const  {addToCart,incrementQuantity,decrementQuantity,removeItem } = cartSlice.actions;
-
+export const selectAllCartItems= (state) => {state.cart.cart }
 export default  cartSlice.reducer;

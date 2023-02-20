@@ -1,8 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
+import { useDispatch } from 'react-redux'
+import { addToCart } from '@/features/Cart/CartSlice'
 
-const Card = ({name, description,price,img }) => {
+const Card = ({name, description,price,img , id}) => {
+
+  const dispatch = useDispatch();
+
+
   return (
     <div className='m-10 mx-auto max-w-sm  shadow-2xl'>
   <div className=" max-w-sm rounded m-0 shadow-lg bg-gray-700">
@@ -26,7 +32,11 @@ const Card = ({name, description,price,img }) => {
    <Button className='w-32'>Buy Now </Button>
    </div>
    <div>
-   <Button className='w-32'>Add to Cart</Button>
+   <Button className='w-32' onClick={() => {
+   dispatch(addToCart({
+    id, name, img, price
+  }))
+   }}>Add to Cart</Button>
    </div>
   </div>
 </div>
