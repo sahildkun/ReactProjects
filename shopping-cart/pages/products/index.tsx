@@ -7,10 +7,12 @@ import { Layout } from "@/components/layout"
 import { buttonVariants } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import Card from "@/components/ProductCard/Card"
+import axios from "axios"
 
-export default function IndexPage() {
+export default function IndexPage(props) {
 
-  const products = useContext(CartContext);
+  // const products = useContext(CartContext);
+  const {products } = props;
   const [searchfield , setSearchfield] = useState("");
 
   // console.log(products);
@@ -18,14 +20,22 @@ const filteredProducts = products.filter((product: { name: string }) => (product
 console.log(filteredProducts)
 // const filteredProducts = products.filter((product: { name: string }) => console.log(product.name.toLocaleLowerCase()));
 
+
+
+
+
   return (
     <Layout>
+      <div className="flex flex-row justify-center py-10">
+      <input type="search" className='border-white   w-96 p-5 rounded-full font-bold' placeholder="Search Your Products here" onChange={(event) => setSearchfield( event.target.value) } />
+      </div>
 
-      <input type="search" className='border-white' onChange={(event) => setSearchfield( event.target.value) } />
+
+
       <div className="grid grid-cols-3 gap-y-3">
       {
 
-           Object.keys(products).length > 0 ? (filteredProducts.map((product) => {
+          filteredProducts.length > 0 ? (filteredProducts.map((product) => {
 
             // const product = products[product];
 
@@ -37,13 +47,21 @@ console.log(filteredProducts)
             </>
           )
          })) : (<>
-          <div className="w-[100rem]">
-          <Progress value={88}  />
-          </div>
+          <p className="flex justify-items-center text-3xl max-w-3xl">
+          No such Product :// pls search correctly
+          </p>
          </>)
       }
       </div>
     </Layout>
   )
 
+  }
+  export async function getStaticProps() {
+    const res = await axios.get("https://api.pujakaitem.com/api/products");
+    return {
+      props: {
+        products: res.data,
+      }
+    }
   }

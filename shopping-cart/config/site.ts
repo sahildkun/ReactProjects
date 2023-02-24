@@ -27,6 +27,10 @@ export const siteConfig: SiteConfig = {
     {
       title:"Cart",
       href:"/cart"
+    },
+    {
+      title:"SIGN IN",
+      href:"/sign-in"
     }
   ],
   links: {

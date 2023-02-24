@@ -2,7 +2,6 @@
   "name": "next-template",
   "version": "0.0.1",
   "private": true,
-
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -44,6 +43,7 @@
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "faker": "^6.6.6",
+    "firebase": "^9.17.1",
     "lucide-react": "0.105.0-alpha.4",
     "next": "^13.1.6",
     "next-themes": "^0.2.1",
