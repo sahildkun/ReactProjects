@@ -1,17 +1,13 @@
-import Head from "next/head"
-import Link from "next/link"
-import { useContext,useState } from 'react'
-import { CartContext } from "@/contexts/cart.context"
-import { siteConfig } from "@/config/site"
+import { useState } from 'react'
+
 import { Layout } from "@/components/layout"
-import { buttonVariants } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import Card from "@/components/ProductCard/Card"
 import axios from "axios"
+import { getAllProducts } from '@/helpers/api-utils';
 
 export default function IndexPage(props) {
 
-  // const products = useContext(CartContext);
+
   const {products } = props;
   const [searchfield , setSearchfield] = useState("");
 
@@ -20,7 +16,7 @@ const filteredProducts = products.filter((product: { name: string }) => (product
 console.log(filteredProducts)
 // const filteredProducts = products.filter((product: { name: string }) => console.log(product.name.toLocaleLowerCase()));
 
-
+console.log(products);
 
 
 
@@ -58,10 +54,22 @@ console.log(filteredProducts)
 
   }
   export async function getStaticProps() {
-    const res = await axios.get("https://api.pujakaitem.com/api/products");
+    // const res = await axios.get("https://api.pujakaitem.com/api/products");
+
+    const products =  await getAllProducts();
+    if(!products) {
+      return {
+        redirect: {
+          destination: '/no-data',
+        }
+      }
+    }
+    if( products.length === 0) {
+      return {notFound: true};
+    }
     return {
       props: {
-        products: res.data,
+        products: products,
       }
     }
   }

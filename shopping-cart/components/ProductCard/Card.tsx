@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { useDispatch } from 'react-redux'
 import { addToCart } from '@/features/Cart/CartSlice'
+import Link from 'next/link'
 
 const Card = ({name, description,price,img , id}) => {
 
@@ -11,6 +12,7 @@ const Card = ({name, description,price,img , id}) => {
 
   return (
     <div className='m-10 mx-auto max-w-sm  shadow-2xl'>
+      <Link href={`/products/${id}`}>
   <div className=" max-w-sm rounded m-0 shadow-lg bg-gray-700">
     <div className='h-60 w-96'>
   <Image src={img} alt={'img23w'} width={500} height={200} className="h-full"  />
@@ -41,7 +43,7 @@ const Card = ({name, description,price,img , id}) => {
   </div>
 </div>
 
-
+</Link>
     </div>
   )
 }
