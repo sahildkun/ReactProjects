@@ -4,6 +4,7 @@ import { Layout } from "@/components/layout"
 import Card from "@/components/ProductCard/Card"
 import axios from "axios"
 import { getAllProducts } from '@/helpers/api-utils';
+import Head from 'next/head';
 
 export default function IndexPage(props) {
 
@@ -21,6 +22,11 @@ console.log(products);
 
 
   return (
+    <>
+
+    <Head>
+      <title>Mo Shop Products</title>
+    </Head>
     <Layout>
       <div className="flex flex-row justify-center py-10">
       <input type="search" className='border-white   w-96 p-5 rounded-full font-bold' placeholder="Search Your Products here" onChange={(event) => setSearchfield( event.target.value) } />
@@ -28,7 +34,7 @@ console.log(products);
 
 
 
-      <div className="grid grid-cols-3 gap-y-3">
+      <div className="grid grid-rows-6 md:grid-rows-none md:grid-cols-3 gap-y-3">
       {
 
           filteredProducts.length > 0 ? (filteredProducts.map((product) => {
@@ -50,6 +56,7 @@ console.log(products);
       }
       </div>
     </Layout>
+    </>
   )
 
   }

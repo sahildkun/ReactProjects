@@ -12,9 +12,10 @@ const Card = ({name, description,price,img , id}) => {
 
   return (
     <div className='m-10 mx-auto max-w-sm  shadow-2xl'>
-      <Link href={`/products/${id}`}>
-  <div className=" max-w-sm rounded m-0 shadow-lg bg-gray-700">
-    <div className='h-60 w-96'>
+
+  <div className="max-w-[18rem] md:max-w-sm rounded-lg m-0 shadow-lg bg-gray-700">
+  <Link href={`/products/${id}`}>
+    <div className='w-auto md:h-60 md:w-96'>
   <Image src={img} alt={'img23w'} width={500} height={200} className="h-full"  />
   </div>
   <div className="px-6 py-4">
@@ -41,9 +42,10 @@ const Card = ({name, description,price,img , id}) => {
    }}>Add to Cart</Button>
    </div>
   </div>
+  </Link>
 </div>
 
-</Link>
+
     </div>
   )
 }

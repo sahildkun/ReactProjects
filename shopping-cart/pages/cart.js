@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Layout } from '@/components/layout'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import Image from 'next/image'
-import { useDispatch } from 'react-redux'
+
 import { incrementQuantity,decrementQuantity ,removeItem} from '@/features/Cart/CartSlice'
 
 
